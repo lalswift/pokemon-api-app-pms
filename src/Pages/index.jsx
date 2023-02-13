@@ -10,7 +10,11 @@ import {
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { baseURL, getPokemonApiEndpoint } from "../api-constants/api-constants";
+import {
+  baseURL,
+  getPokemonApiEndpoint,
+  getPokemonImages,
+} from "../api-constants/api-constants";
 import Loader from "../components/common/Loader";
 
 const HomePage = () => {
@@ -27,8 +31,8 @@ const HomePage = () => {
       const response = await axios.get(
         baseURL + getPokemonApiEndpoint(5, (currentPage - 1) * 5)
       );
-      setCount(response?.data?.count);
       if (response?.status === 200) {
+        setCount(response?.data?.count);
         setPokemonAPIData(response?.data?.results);
         setShowLoader(false);
       }
@@ -51,7 +55,6 @@ const HomePage = () => {
           justifyContent: "center",
         }}
       >
-        {/* <img src={require('../assets/images/Pokemon.png')} alt="Logo" style={{ width: 900, height: 150 }} /> */}
         <Typography variant="h1">Pokemon API</Typography>
       </div>
 
@@ -76,7 +79,7 @@ const HomePage = () => {
                 boxShadow: 3,
                 backgroundColor: "#BFACE2",
                 borderRadius: 6,
-                ':hover': {
+                ":hover": {
                   boxShadow: 20,
                 },
               }}
@@ -90,9 +93,7 @@ const HomePage = () => {
                   sx={{ padding: 1, height: 300, width: "96%" }}
                   component="img"
                   height="300"
-                  image={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
-                    url?.pathname?.split("/")[4]
-                  }.svg`}
+                  image={getPokemonImages(url?.pathname?.split("/")[4])}
                   alt={item?.name}
                 />
               )}

@@ -89,13 +89,13 @@ const DetailsPage = () => {
             })}
 
             <Chip
-              label={`Height: ${pokemonDetails?.height}`}
+              label={`Height: ${pokemonDetails?.height}m`}
               color="error"
               variant="filled"
             />
 
             <Chip
-              label={`Weight: ${pokemonDetails?.weight}`}
+              label={`Weight: ${pokemonDetails?.weight}lbs`}
               color="success"
               variant="filled"
             />
