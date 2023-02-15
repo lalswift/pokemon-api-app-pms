@@ -28,7 +28,7 @@ const DetailsPage = () => {
   }, [id]);
 
   return (
-    <div>
+    <>
       <Stack direction="row" justifyContent="space-between" pr={2} mb={2}>
         <Grid container>
           <Grid
@@ -235,7 +235,7 @@ const DetailsPage = () => {
           </Grid>
         </Grid>
       </Grid>
-    </div>
+    </>
   );
 };
 

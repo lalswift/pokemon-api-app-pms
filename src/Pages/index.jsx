@@ -47,7 +47,7 @@ const HomePage = () => {
   }, [currentPage]);
 
   return (
-    <div>
+    <>
       <div
         style={{
           textAlign: "center",
@@ -141,7 +141,7 @@ const HomePage = () => {
         showFirstButton
         showLastButton
       />
-    </div>
+    </>
   );
 };
 
